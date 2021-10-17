@@ -1,0 +1,11 @@
+C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\bin\Debug\QLBH_HQTCSDL.exe.config
+C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\bin\Debug\QLBH_HQTCSDL.exe
+C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\bin\Debug\QLBH_HQTCSDL.pdb
+C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\obj\Debug\QLBH_HQTCSDL.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\obj\Debug\QLBH_HQTCSDL.Properties.Resources.resources
+C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\obj\Debug\QLBH_HQTCSDL.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\obj\Debug\QLBH_HQTCSDL.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\obj\Debug\QLBH_HQTCSDL.exe
+C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\obj\Debug\QLBH_HQTCSDL.pdb
+C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\obj\Debug\QLBH_HQTCSDL.fLogin.resources
+C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\obj\Debug\QLBH_HQTCSDL.MainForm.resources
