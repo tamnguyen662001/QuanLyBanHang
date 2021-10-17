@@ -9,3 +9,5 @@ C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\obj\Debug\QLBH_HQ
 C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\obj\Debug\QLBH_HQTCSDL.pdb
 C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\obj\Debug\QLBH_HQTCSDL.fLogin.resources
 C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\obj\Debug\QLBH_HQTCSDL.MainForm.resources
+C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\obj\Debug\QLBH_HQTCSDL.FormAcount.resources
+C:\Users\Admin\Desktop\QuanLyBanHang\QLBH_HQTCSDL\QLBH_HQTCSDL\obj\Debug\QLBH_HQTCSDL.FormAdmin.resources
