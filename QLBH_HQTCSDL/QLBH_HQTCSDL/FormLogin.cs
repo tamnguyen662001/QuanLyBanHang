@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLBH_HQTCSDL.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,12 +20,27 @@ namespace QLBH_HQTCSDL
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            MainForm f = new MainForm();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            string tk = tbtdn.Text;
+            string mk = tbmk.Text;
+
+            if(Login(tk,mk))
+            {
+                MainForm f = new MainForm();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Không tồn tại tài khoản !");
+            }
         }
 
+
+        bool Login(string tk,string mk)
+        {
+            return AccountDAO.Instance.Login(tk, mk);
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

@@ -20,10 +20,7 @@ namespace QLBH_HQTCSDL
             loaddata();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         void loaddata()
         {

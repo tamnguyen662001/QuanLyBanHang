@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdmin));
             this.tcTaikhoan = new System.Windows.Forms.TabControl();
             this.tpDoanhthu = new System.Windows.Forms.TabPage();
@@ -59,6 +61,8 @@
             this.btnXem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.dgvMonan = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
@@ -102,8 +106,6 @@
             this.panel23 = new System.Windows.Forms.Panel();
             this.tbtendangnhap = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.dgvMonan = new System.Windows.Forms.DataGridView();
             this.tcTaikhoan.SuspendLayout();
             this.tpDoanhthu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -118,6 +120,8 @@
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMonan)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel16.SuspendLayout();
@@ -136,8 +140,6 @@
             this.panel22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTaikhoan)).BeginInit();
             this.panel23.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMonan)).BeginInit();
             this.SuspendLayout();
             // 
             // tcTaikhoan
@@ -435,6 +437,22 @@
             this.btnThem.TabIndex = 4;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dgvMonan);
+            this.panel3.Location = new System.Drawing.Point(3, 6);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(290, 302);
+            this.panel3.TabIndex = 0;
+            // 
+            // dgvMonan
+            // 
+            this.dgvMonan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMonan.Location = new System.Drawing.Point(0, 3);
+            this.dgvMonan.Name = "dgvMonan";
+            this.dgvMonan.Size = new System.Drawing.Size(293, 305);
+            this.dgvMonan.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -818,7 +836,23 @@
             // 
             // dtgTaikhoan
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgTaikhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgTaikhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgTaikhoan.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtgTaikhoan.Location = new System.Drawing.Point(3, 3);
             this.dtgTaikhoan.Name = "dtgTaikhoan";
             this.dtgTaikhoan.Size = new System.Drawing.Size(400, 361);
@@ -851,23 +885,6 @@
             this.label2.Size = new System.Drawing.Size(100, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên đăng nhập";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.dgvMonan);
-            this.panel3.Location = new System.Drawing.Point(3, 6);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(290, 302);
-            this.panel3.TabIndex = 0;
-            // 
-            // dgvMonan
-            // 
-            this.dgvMonan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMonan.Location = new System.Drawing.Point(0, 3);
-            this.dgvMonan.Name = "dgvMonan";
-            this.dgvMonan.Size = new System.Drawing.Size(293, 305);
-            this.dgvMonan.TabIndex = 0;
             // 
             // FormAdmin
             // 
@@ -899,6 +916,8 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMonan)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
@@ -925,8 +944,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgTaikhoan)).EndInit();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMonan)).EndInit();
             this.ResumeLayout(false);
 
         }
