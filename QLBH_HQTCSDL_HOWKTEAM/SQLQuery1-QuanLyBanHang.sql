@@ -1,0 +1,217 @@
+﻿-- Phần mềm quản lí bán hàng đơn giản - Howkteam 16/10/2021
+
+--====================================================================CREATE DATABAE===========================================================================
+CREATE DATABASE QUANLIBANHANG
+
+USE QUANLIBANHANG
+
+CREATE TABLE BAN
+(
+	ID INT IDENTITY PRIMARY KEY NOT NULL,
+	TENBAN NVARCHAR(50) NOT NULL,
+	TRANGTHAI NVARCHAR(50) NOT NULL DEFAULT N'Trống',
+)
+GO
+CREATE TABLE TAIKHOAN
+(
+	TK NVARCHAR(50) NOT NULL PRIMARY KEY,
+	MK NVARCHAR(50) NOT NULL,
+	TENDN NVARCHAR(50) NOT NULL,
+	LOAITK INT NOT NULL
+)
+GO
+CREATE TABLE LOAISP
+(	
+	ID INT IDENTITY PRIMARY KEY NOT NULL,
+	TENSP NVARCHAR(50) NOT NULL,
+)
+
+GO
+CREATE TABLE SANPHAM
+(	
+	ID INT IDENTITY PRIMARY KEY NOT NULL,
+	TENSP NVARCHAR(50) NOT NULL,
+	IDLSP INT NOT NULL,
+	DONGIA FLOAT NOT NULL DEFAULT 0
+	
+	FOREIGN KEY (IDLSP) REFERENCES LOAISP(ID),
+)
+CREATE TABLE HOADON
+(
+	ID INT IDENTITY PRIMARY KEY NOT NULL,
+	IDBAN INT NOT NULL,
+	NGAYDEN DATE NOT NULL DEFAULT GETDATE(),
+	NGAYDI DATE ,
+	TRANGTHAI INT NOT NULL DEFAULT 0 -- THANH TOAN HAY CHUA 1/0
+	
+	FOREIGN KEY (IDBAN) REFERENCES BAN(ID),
+)
+GO
+CREATE TABLE CHITIETHOADON
+(
+	ID INT IDENTITY PRIMARY KEY NOT NULL,	
+	IDHOADON INT NOT NULL,
+	IDSP INT NOT NULL,
+	SL INT NOT NULL DEFAULT 0
+
+	FOREIGN KEY (IDHOADON) REFERENCES HOADON(ID),
+	FOREIGN KEY (IDSP) REFERENCES SANPHAM(ID),
+)
+
+--====================================================================END CREATE===========================================================================
+
+
+--====================================================================iNSERT DATA===========================================================================
+INSERT TAIKHOAN VALUES('tamnguyen662001','662001',N'Tâm Nguyễn',1)
+INSERT TAIKHOAN VALUES('duynguyen442001','123123',N'Duy Nguyễn',0)
+INSERT TAIKHOAN VALUES('namtran632002','321123',N'Nam Trần',0)
+INSERT TAIKHOAN VALUES('tringuyen2000','111111',N'Trí Nguyễn',0)
+INSERT TAIKHOAN VALUES('chaunguyen2001','545454',N'Châu Nguyễn',0)
+
+
+INSERT LOAISP VALUES (N'Cà phê')
+INSERT LOAISP VALUES (N'Trà')
+INSERT LOAISP VALUES (N'Nước ép')
+INSERT LOAISP VALUES (N'Cocktail')
+INSERT LOAISP VALUES (N'Đá xay')
+
+
+INSERT SANPHAM VALUES (N'Cà phê nguyên chất',1,18000)
+INSERT SANPHAM VALUES (N'Trà Ô long',2,20000)
+INSERT SANPHAM VALUES (N'Nước Cam ',3,22000)
+INSERT SANPHAM VALUES (N'Cocktail Whiskey Sour',4,30000)
+INSERT SANPHAM VALUES (N'Việt quất đá xay ',5,24000)
+
+
+
+INSERT HOADON VALUES (1,'2/3/2021','2/3/2021',1)
+INSERT HOADON VALUES (2,'6/6/2021','6/6/2021',1)
+INSERT HOADON VALUES (3,GETDATE(),GETDATE(),1)
+INSERT HOADON VALUES (4,GETDATE(),GETDATE(),1)
+INSERT HOADON VALUES (9,'2/8/2021','2/8/2021',0)
+INSERT HOADON VALUES (10,'6/6/2021','6/4/2021',0)
+INSERT HOADON VALUES (11,'11/7/2021','11/7/2021',0)
+INSERT HOADON VALUES (12,'12/6/2021','12/6/2021',0)
+INSERT HOADON VALUES (10,'8/6/2021','8/6/2021',0)
+
+
+
+INSERT CHITIETHOADON VALUES (1,6,3)
+INSERT CHITIETHOADON VALUES (2,7,4)
+INSERT CHITIETHOADON VALUES (3,8,3)
+INSERT CHITIETHOADON VALUES (4,9,2)
+INSERT CHITIETHOADON VALUES (5,10,6)
+INSERT CHITIETHOADON VALUES (6,6,6)
+INSERT CHITIETHOADON VALUES (7,7,6)
+INSERT CHITIETHOADON VALUES (8,8,3)
+INSERT CHITIETHOADON VALUES (9,9,4)
+INSERT CHITIETHOADON VALUES (10,6,5)
+INSERT CHITIETHOADON VALUES (9,7,2)
+
+
+
+
+
+
+
+
+INSERT BAN VALUES(N'BÀN 1',N'Có khách')
+INSERT BAN VALUES(N'BÀN 2',N'Có khách')
+INSERT BAN VALUES(N'BÀN 3',N'Có khách')
+INSERT BAN VALUES(N'BÀN 4',N'Có khách')
+INSERT BAN VALUES(N'BÀN 5',N'Trống')
+INSERT BAN VALUES(N'BÀN 6',N'Trống')
+INSERT BAN VALUES(N'BÀN 7',N'Trống')
+INSERT BAN VALUES(N'BÀN 8',N'Trống')
+INSERT BAN VALUES(N'BÀN 9',N'Có khách')
+INSERT BAN VALUES(N'BÀN 10',N'Có khách')
+INSERT BAN VALUES(N'BÀN 11',N'Có khách')
+INSERT BAN VALUES(N'BÀN 12',N'Có khách')
+INSERT BAN VALUES(N'BÀN 13',N'Trống')
+INSERT BAN VALUES(N'BÀN 14',N'Có khách')
+INSERT BAN VALUES(N'BÀN 15',N'Trống')
+INSERT BAN VALUES(N'BÀN 16',N'Có khách')
+
+--====================================================================END INSERT============================================================
+
+--======================================================================QUERY===============================================================
+
+
+-- Tạo proc lấy ds bàn
+GO
+CREATE PROC DSBAN
+AS
+BEGIN
+	SELECT * FROM BAN 
+END
+GO
+EXEC DSBAN
+-- tạo proc lấy ds tài khoản
+GO
+CREATE PROC DSTK
+@TENDN NVARCHAR(50)
+AS
+BEGIN
+		SELECT * FROM TAIKHOAN WHERE TENDN = @TENDN
+END
+EXEC DSTK N'Tâm Nguyễn'
+
+-- tạo proc kiểm tra đăng nhập
+GO
+CREATE PROC LOGIN
+@TK NVARCHAR(50),@MK NVARCHAR(50)
+AS
+BEGIN
+	SELECT * FROM TAIKHOAN WHERE TK = @TK AND MK = @MK
+END
+GO
+
+-- cho biết chi danh sách món ăn, tổng tiền thông tin bàn của từng bàn
+SELECT C.IDHOADON ,A.TENBAN , D.TENSP ,C.SL ,SUM(C.SL*D.DONGIA) AS N'TONGTIEN'  
+FROM BAN A, HOADON B, CHITIETHOADON C, SANPHAM D
+WHERE A.ID = B.IDBAN AND B.ID = C.IDHOADON AND  C.IDSP = D.ID AND A.TRANGTHAI = 'Có khách' 
+GROUP BY A.TENBAN, C.IDHOADON,C.SL , D.TENSP
+ORDER BY C.IDHOADON
+
+GO
+CREATE PROC BILL
+@ID INT
+AS
+BEGIN
+	SELECT C.IDHOADON AS N'Số hoá đơn', D.TENSP AS N'Món',C.SL , D.DONGIA AS N'Đơn giá', SUM(C.SL*D.DONGIA) AS N'Tổng tiền'  
+	FROM BAN A, HOADON B, CHITIETHOADON C, SANPHAM D
+	WHERE A.ID = B.IDBAN AND B.ID = C.IDHOADON AND  C.IDSP = D.ID AND A.TRANGTHAI = 'Có khách' AND A.ID = @ID
+	GROUP BY C.IDHOADON,C.SL , D.TENSP, d.DONGIA
+	ORDER BY C.IDHOADON
+END
+
+
+
+GO
+EXEC BILL 9
+--====================================================================END QUERY=============================================================
+
+
+--=====================================================================TEST ================================================================
+SELECT * FROM TAIKHOAN WHERE TK = N't' AND MK = '1' 
+SELECT * FROM TAIKHOAN WHERE TK = N'' OR 1=1
+SELECT * FROM HOADON WHERE  IDBAN = 25 AND TRANGTHAI = 0
+SELECT * FROM CHITIETHOADON
+SELECT * FROM HOADON
+
+select * from SANPHAM
+select * from BAN
+select * from TAIKHOAN
+SELECT * FROM LOAISP
+
+/*DELETE FROM LOAISP WHERE ID > 5
+
+DECLARE @I INT = 1
+WHILE @I < 17
+BEGIN
+	INSERT BAN (TENBAN) VALUES(N'Bàn '+ CAST(@I AS NVARCHAR(50)))
+	SET @I = @I+1
+END
+
+UPDATE BAN SET TRANGTHAI = N'Đã đặt' WHERE ID = 26*/
+--====================================================================END TEST==================================================================
